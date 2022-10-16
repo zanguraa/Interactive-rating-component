@@ -1,13 +1,23 @@
 import React from "react";
 import styled from "styled-components";
 
-function Numbers() {
+function Numbers({ thanks, setRating }) {
   let arrayOfNumbers = [1, 2, 3, 4, 5];
 
   return (
     <NumberContainer>
       {arrayOfNumbers.map((numb, index) => {
-        return <Numb key={index}>{numb}</Numb>;
+        return (
+          <Numb
+            onClick={() => {
+              setRating(numb);
+            }}
+            key={index}
+            isActive={numb === thanks}
+          >
+            {numb}
+          </Numb>
+        );
       })}
     </NumberContainer>
   );
@@ -19,6 +29,9 @@ const NumberContainer = styled.div`
   display: flex;
   justify-content: center;
   gap: 10px;
+  @media (min-width: 768px) {
+    gap: 21px;
+  }
 `;
 
 const Numb = styled.button`
@@ -37,7 +50,11 @@ const Numb = styled.button`
     color: white;
   }
   :focus {
-    background-color: #7C8798;
+    background-color: #7c8798;
     color: white;
+  }
+  @media (min-width: 768px) {
+    width: 51px;
+    height: 51px;
   }
 `;

@@ -4,13 +4,7 @@ import Star from "../assets/images/icon-star.svg";
 import Numbers from "./Numbers";
 import SubmitButton from "./SubmitButton";
 
-
-function Rating() {
-
-
-
-
-
+function Rating({setThanks, thanks, rating, setRating}) {
   return (
     <RatingContainer>
       <StarContainer>
@@ -23,8 +17,8 @@ function Rating() {
           is appreciated to help us improve our offering!
         </span>
       </Description>
-      <Numbers />
-      <SubmitButton />
+      <Numbers thanks={thanks} rating={rating} setRating={setRating}/>
+      <SubmitButton rating={rating} setThanks={setThanks} />
     </RatingContainer>
   );
 }
@@ -45,8 +39,7 @@ const RatingContainer = styled.div`
   border-radius: 15px;
   @media (min-width: 768px) {
     padding: 45px 40px 45px 32px;
-
-width: 340px;
+    width: 340px;
   }
 `;
 
@@ -58,6 +51,10 @@ const StarContainer = styled.div`
   background-color: #262e38;
   width: 40px;
   height: 40px;
+  @media (min-width: 768px) {
+    width: 48px;
+    height: 48px;
+  }
 `;
 
 const Description = styled.div`
@@ -68,6 +65,10 @@ const Description = styled.div`
     font-size: 24px;
     line-height: 30px;
     margin: 0;
+    @media (min-width: 768px) {
+      font-size: 28px;
+      line-height: 35px;
+    }
   }
 
   span {
@@ -75,5 +76,9 @@ const Description = styled.div`
     font-size: 14px;
     line-height: 22px;
     color: #969fad;
+    @media (min-width: 768px) {
+      font-size: 15px;
+      line-height: 24px;
+    }
   }
 `;

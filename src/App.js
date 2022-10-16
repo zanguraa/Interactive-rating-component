@@ -4,9 +4,23 @@ import Rating from "./components/Rating";
 import Thanks from "./components/Thanks";
 
 function App() {
-  const [thanks, setThanks] = useState(true);
+  const [thanks, setThanks] = useState(false);
+  const [rating, setRating] = useState();
 
-  return <Main>{thanks ? <Rating /> : <Thanks />}</Main>;
+  return (
+    <Main>
+      {!thanks ? (
+        <Rating
+          rating={rating}
+          thanks={thanks}
+          setRating={setRating}
+          setThanks={setThanks}
+        />
+      ) : (
+        <Thanks rating={rating} />
+      )}
+    </Main>
+  );
 }
 
 export default App;

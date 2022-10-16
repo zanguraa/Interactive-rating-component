@@ -2,11 +2,11 @@ import React from "react";
 import PicOfThank from "../assets/images/illustration-thank-you.svg";
 import styled from "styled-components";
 
-function Thanks() {
+function Thanks({rating}) {
   return (
     <ThanksContainer>
       <img src={PicOfThank} alt="thank-you" />
-      <SelectedDiv>You Selected 5 out of 5</SelectedDiv>
+      <SelectedDiv>You Selected {rating} out of 5</SelectedDiv>
       <ThankYou>Thank You!</ThankYou>
       <Description>
         We appreciate you taking the time to give a rating. If you ever need

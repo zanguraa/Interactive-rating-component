@@ -1,8 +1,25 @@
 import React from "react";
 import styled from "styled-components";
 
-function SubmitButton({ ThanksPageHandler }) {
-  return <Submit onClick={ThanksPageHandler}>Submit</Submit>;
+function SubmitButton({rating, setThanks }) {
+ 
+    const HandelSumbit = ()=> {
+        if(!rating) return;
+        setThanks(true);
+    }
+
+  return (
+    <Submit
+      onClick={() => {
+      
+        HandelSumbit();
+            
+       
+      }}
+    >
+      Submit
+    </Submit>
+  );
 }
 
 export default SubmitButton;
@@ -17,9 +34,8 @@ const Submit = styled.button`
   cursor: pointer;
   :hover {
     background-color: white;
-   
   }
   @media (min-width: 768px) {
-      width: 341px;
-    }
+    width: 341px;
+  }
 `;
