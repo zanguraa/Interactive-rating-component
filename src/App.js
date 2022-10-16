@@ -1,12 +1,12 @@
+import React, { useState } from "react";
 import styled from "styled-components";
 import Rating from "./components/Rating";
+import Thanks from "./components/Thanks";
 
 function App() {
-  return (
-    <Main>
-      <Rating />
-    </Main>
-  );
+  const [thanks, setThanks] = useState(true);
+
+  return <Main>{thanks ? <Rating /> : <Thanks />}</Main>;
 }
 
 export default App;
